@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de Alumnos {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo Alumno</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Alumnos</h4>
+
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cod. Alumno</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Fecha de nacimiento</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Distrito</th>
+                        <th scope="col">Monto</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>76548964</td>
+                        <td>Juan</td>
+                        <td>15/06/2002</td>
+                        <td>20</td>
+                        <td>987654321</td>
+                        <td>Carabayllo</td>
+                        <td>1700.00</td>
+                        <td>  <a name="" id="" class="btn btn-info" href="{% url 'editar' %}" role="button">Editar</a> 
+                             | 
+                              <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div class="card-footer text-muted"></div>      
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
