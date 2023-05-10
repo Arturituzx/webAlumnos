@@ -4,10 +4,16 @@ from django.db import models
 
 class Alumno(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=10, verbose_name='Nombre')
+    codAlumno = models.CharField(max_length=8, verbose_name='Codigo de Alumno')
+    nombres = models.CharField(max_length=100, verbose_name='Nombre')
+    Apellido = models.CharField(max_length=100, verbose_name='Apellido')
     imagen = models.ImageField(upload_to='imagenes/',verbose_name='Imagen', null=True)
-    telefono = models.CharField(verbose_name='Telefono', max_length=9)
-
+    descripcion = models.TextField(verbose_name='Descripcion', null=True)
     def __str__(self):
-        fila = 'Nombre:'+ self.nombre + '\n' + 'Telefono:'+ self.telefono + '\n' + 'Imagen:'+ self.imagen 
+        fila = "Nombre: " + self.nombres + " - " + " Apellido: " + self.Apellido
         return fila
+    def delete(self, using=None, keep_parents=False):
+        self.imagen.storage.delete(self.imagen.name)
+        super().delete()
+
+   
