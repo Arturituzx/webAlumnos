@@ -9,6 +9,9 @@ class Alumno(models.Model):
     Apellido = models.CharField(max_length=100, verbose_name='Apellido')
     imagen = models.ImageField(upload_to='imagenes/',verbose_name='Imagen', null=True)
     descripcion = models.TextField(verbose_name='Descripcion', null=True)
+    edad = models.CharField(max_length=10, verbose_name='Edad', null=True)
+    monto = models.CharField(max_length=1000000, verbose_name='Monto', null=True)
+    fechaNacimiento = models.DateField(verbose_name='Fecha Nacimiento' ,null=True, blank=True)
     def __str__(self):
         fila = "Nombre: " + self.nombres + " - " + " Apellido: " + self.Apellido
         return fila
