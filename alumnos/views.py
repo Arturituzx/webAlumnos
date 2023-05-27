@@ -9,8 +9,8 @@ def inicio(request):
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
 
-def registro(request):
-    return render(request, 'paginas/registro.html')
+def login(request):
+    return render(request, 'paginas/login.html')
 
 def alumnos(request):
     alumnos = Alumno.objects.all()
