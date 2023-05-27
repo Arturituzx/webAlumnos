@@ -1,5 +1,7 @@
 /*****asdsadsad *****/
-
+.float-right{
+  float: right !important;
+}
 .background-w{
  background-color: rgb(227, 217, 217) !important;   
 }
@@ -12,9 +14,10 @@
   
   body{
     font-family: arial;
-    background-image: url('fondo.jpg');
   }
-  
+  .bg-login{
+    background: #24303c;
+  }
   .form-login{
     width: 400px;
     height: 340px;
@@ -140,3 +143,35 @@ line-height: 40px;
     font-size: 16px;
 }
   
+.about{
+  background: #F2F4F4;
+}
+.pad-25{
+  padding: 0px 25px 25px 25px;
+}
+.tituloTexto{
+  color: #111;
+  font-size: 2em;
+  font-weight: 300;
+}
+.tituloTexto span{
+  color: #E53935;
+  font-weight: 700;
+  font-size: 1.5em;
+}
+.align-center{
+  align-items: center ;
+  display: grid;
+}
+@media only screen and (max-width: 768px){
+  .text-align-center{
+    text-align: center;
+  }
+  
+  .pad-25{
+  padding: 0px;
+  }
+  .padd-20{
+    padding: 10px 20px 0px 20px;
+  }
+}
