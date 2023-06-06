@@ -7,13 +7,14 @@
 <div class="card">
     <div class="card-header">
         <a name="" id="" class="btn btn-success" href="{% url 'crear' %}" role="button">Agregar nuevo Alumno</a>
+        <a href="" class="float-right btn btn-info" onclick="ordenarNombre()">Ordenar</a>
         
     </div>
     
     <div class="card-body">
         <h4 class="card-title">Alumnos</h4>
 
-        <div class="table-responsive">
+        <div class="table-responsive background-w">
             <table class="table">
                 <thead>
                     <tr>
@@ -40,15 +41,15 @@
                         <td>{{ alumno.Apellido}}</td>
                         <td>{{ alumno.fechaNacimiento }}</td>
                         <td>{{ alumno.edad }}</td>
-                        <td>987654321</td>
-                        <td>Carabayllo</td>
+                        <td>{{ alumno.telefono }}</td>
+                        <td>{{ alumno.lugar }}</td>
                         <td>{{ alumno.monto }}</td>
                         <td><img src="{{ alumno.imagen.url }}" height="100" /></td>
                         <td>{{ alumno.descripcion }}</td>
                         <td>
                                 <a name="" id="" class="btn btn-info" href="{% url 'editar' alumno.id %}" role="button">Editar</a> 
                                 |
-                                <a name="" id="" class="btn btn-danger" href="{% url 'eliminar' alumno.id %}" role="button">Borrar</a> </td>
+                                <a name="" id="" onclick="return confirm('¿Desea Borrar el Empleado?')" class="btn btn-danger" href="{% url 'eliminar' alumno.id %}" role="button">Borrar</a> </td>
                              
                              
                     </tr>
@@ -62,4 +63,35 @@
         
     </div>
 </div>
+
+
 {% endblock %}
+
+<script>
+    function ordenarNombre() {
+  var tabla = document.querySelector(".table");
+  var tbody = tabla.querySelector("tbody");
+  var filas = Array.from(tbody.querySelectorAll("tr"));
+
+  // Ordenar las filas por el contenido de la columna "Nombres"
+  filas.sort(function(a, b) {
+    var nombreA = a.cells[2].innerText.toLowerCase();
+    var nombreB = b.cells[2].innerText.toLowerCase();
+    if (nombreA < nombreB) {
+      return -1;
+    }
+    if (nombreA > nombreB) {
+      return 1;
+    }
+    return 0;
+  });
+
+  // Vaciar el tbody actual
+  tbody.innerHTML = "";
+
+  // Agregar las filas ordenadas al tbody
+  filas.forEach(function(fila) {
+    tbody.appendChild(fila);
+  });
+}
+</script>

@@ -9,6 +9,8 @@ def inicio(request):
 def nosotros(request):
     return render(request, 'paginas/nosotros.html')
 
+def login(request):
+    return render(request, 'paginas/login.html')
 
 def alumnos(request):
     alumnos = Alumno.objects.all()
@@ -32,3 +34,7 @@ def eliminar(request, id):
     alumnos = Alumno.objects.get(id=id)
     alumnos.delete()
     return redirect('alumnos')
+def returnImage(request):
+    objecto = Alumno.objects.get(id=1)
+    rutaImagen = objecto.imagen.url
+    return rutaImagen

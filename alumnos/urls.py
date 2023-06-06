@@ -13,4 +13,5 @@ urlpatterns = [
     path('alumnos/editar', views.editar, name='editar'),
     path('eliminar/<int:id>', views.eliminar, name='eliminar'),
     path('alumnos/editar/<int:id>', views.editar, name='editar'),
+    path('login', views.login, name='login'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
