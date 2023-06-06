@@ -12,6 +12,8 @@ class Alumno(models.Model):
     edad = models.CharField(max_length=10, verbose_name='Edad', null=True)
     monto = models.CharField(max_length=1000000, verbose_name='Monto', null=True)
     fechaNacimiento = models.DateField(verbose_name='Fecha Nacimiento' ,null=True, blank=True)
+    telefono = models.CharField(max_length=9, verbose_name='Telefono', null=True)
+    lugar = models.CharField(max_length=10000, verbose_name='Lugar', null=True)
     def __str__(self):
         fila = "Nombre: " + self.nombres + " - " + " Apellido: " + self.Apellido
         return fila
